@@ -1,0 +1,73 @@
+{
+  "name": "pagetemplateext",
+  "displayName": "PageTemplate",
+  "description": "",
+  "publisher": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "version": "0.0.8",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "media/ext-icon.png",
+  "activationEvents": [
+    "onView:pageTemplates"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "page-template",
+          "title": "Page Templates",
+          "icon": "media/navbar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "page-template": [
+        {
+          "id": "pageTemplates",
+          "name": "页面模板列表"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "watch": "webpack",
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "build-web": "npm --prefix web run build",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.73.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "@vscode/test-electron": "^2.1.5",
+    "concurrently": "^7.5.0",
+    "eslint": "^8.24.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "@gitbeaker/node": "^35.7.0"
+  }
+}

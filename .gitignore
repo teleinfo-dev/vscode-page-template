@@ -1,0 +1,7 @@
+out
+dist
+dist-web
+web/node_modules
+node_modules
+.vscode-test/
+*.vsix
